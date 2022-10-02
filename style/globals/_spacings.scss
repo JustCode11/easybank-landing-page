@@ -1,0 +1,20 @@
+@use '../utils/' as u;
+
+$mobile: 375;
+$desktop: 1440;
+
+$mobileSizeSmall: 25;
+$desktopSize: 165;
+$marginSize: 300;
+
+.containerSmall {
+    padding-left: calc(u.rem($mobileSizeSmall) + u.rem($marginSize));
+    padding-right: calc(u.rem($mobileSizeSmall) + u.rem($marginSize));
+    margin-left: u.rem(-$marginSize);
+    margin-right: u.rem(-$marginSize);
+
+    @include u.breakpoint-up(large) {
+        padding-left: calc(u.rem($desktopSize) + u.rem($marginSize));
+        padding-right: calc(u.rem($desktopSize) + u.rem($marginSize));
+    }
+}

@@ -1,0 +1,56 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.attribution {
+    position: fixed;
+    top: 95%;
+    left: u.rem(-255);
+    z-index: 1;
+    display: flex;
+    cursor: pointer;
+    transition: left 400ms ease-in-out;
+
+    @include u.breakpoint-up(large) {
+        top: 90%;
+        left: u.rem(-315);
+    }
+
+    &:hover {
+        left: 0;
+    }
+
+    &__content {
+        background-color: black;
+        width: u.rem(230);
+        height: u.rem(45);
+        padding: u.rem(5) u.rem(15);
+
+        @include u.breakpoint-up(large) {
+            width: u.rem(295);
+            height: u.rem(60);
+            padding: u.rem(10) u.rem(30);
+        }
+
+        a {
+            color: rgb(243, 243, 114);
+            text-decoration: underline;
+            transition: color 200ms ease-in-out;
+
+            &:hover {
+                color: rgb(255, 255, 193);
+            }
+        }
+    }
+
+    &__spike {
+        width: 0;
+        height: 0;
+        border-top: u.rem(45) solid black;
+        border-right: u.rem(45) solid transparent;
+
+        @include u.breakpoint-up(large) {
+            border-top: u.rem(60) solid black;
+            border-right: u.rem(60) solid transparent;
+        }
+    }
+}

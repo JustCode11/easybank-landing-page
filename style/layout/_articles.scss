@@ -1,0 +1,95 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.articles {
+    padding-top: u.rem(85);
+    padding-bottom: u.rem(85);
+    background-color: v.$veryLightGray;
+
+    h2 {
+        padding-bottom: u.rem(30);
+    }
+
+    &__cardsContainer {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include u.breakpoint-up(large) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__card {
+            background-color: v.$white;
+            border-radius: u.rem(5);
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 400ms ease-in-out;
+            max-width: u.rem(308);
+
+            @include u.breakpoint-up(large) {
+                max-width: u.rem(255);
+            }
+
+            &.article-appear {
+                opacity: 1;
+            }
+
+            &:hover {
+                #cardImg {
+                    transform: scale(1.4) rotate(15deg);
+                }
+
+                #cardHeadline {
+                    color: v.$limeGreen;
+                }
+            }
+
+            @include u.breakpoint-down(medium) {
+                &:not(:first-child, :last-child) {
+                    margin-bottom: u.rem(25);
+                }
+            }
+
+            &__imgContainer {
+                width: 100%;
+                height: u.rem(200);
+                overflow: hidden;
+                margin-bottom: u.rem(25);
+                border-top-left-radius: u.rem(5);
+                border-top-right-radius: u.rem(5);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    transition: all 800ms ease-in-out;
+                }
+            }
+
+            &__content {
+                padding-bottom: u.rem(40);
+                padding-left: u.rem(27.2);
+                padding-right: u.rem(27.2);
+
+                &__author {
+                    color: v.$grayishBlue;
+                    font-size: u.rem(10);
+                    padding-bottom: u.rem(10);
+                }
+
+                &__headline {
+                    font-size: u.rem(18);
+                    padding-bottom: u.rem(10);
+                    transition: color 400ms ease-in-out;
+                }
+
+                p {
+                    line-height: u.rem(19);
+                    font-size: u.rem(12);
+                }
+            }
+        }
+    }
+}

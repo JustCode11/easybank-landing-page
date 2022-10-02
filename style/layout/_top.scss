@@ -1,0 +1,86 @@
+@use '../utils/' as u;
+@use '../globals/' as v;
+
+.top {
+    display: flex;
+    flex-direction: column;
+    background-color: v.$veryLightGray;
+
+    @include u.breakpoint-down(medium) {
+        padding-bottom: u.rem(85);
+    }
+
+    @include u.breakpoint-up(large) {
+        flex-direction: row;
+        align-items: center;
+        padding-left: u.rem(465);
+        padding-right: u.rem(465);
+        margin-left: u.rem(-300);
+        margin-right: u.rem(-300);
+        height: u.rem(600);
+    }
+
+    &__contentContainer {
+        @include u.breakpoint-down(medium) {
+            order: 2;
+            padding-left: u.rem(25);
+            padding-right: u.rem(25);
+            margin-top: u.rem(-85);
+        }
+
+        @include u.breakpoint-up(large) {
+            width: 55%;
+            padding-right: u.rem(125);
+        }
+
+        h1 {
+            margin-bottom: u.rem(20);
+        }
+
+        p {
+            margin-bottom: u.rem(35);
+        }
+    }
+
+    &__imageContainer {
+        @include u.breakpoint-down(medium) {
+            order: 1;
+        }
+
+        width: 100%;
+        background-image: url('../../images/bg-intro-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: u.rem(-68);
+
+        @include u.breakpoint-up(large) {
+            background-image: url('../../images/bg-intro-desktop.svg');
+            margin-right: -165px;
+            background-size: auto;
+            background-position: -73px -265px;
+            height: 100%;
+            width: 76%;
+        }
+
+        &__backgroundImg {
+            position: relative;
+            bottom: u.rem(109);
+            overflow: hidden;
+
+            @include u.breakpoint-down(medium) {
+                padding-left: u.rem(25);
+                padding-right: u.rem(25);
+            }
+
+            @include u.breakpoint-up(large) {
+                left: u.rem(122);
+                bottom: u.rem(115);
+                overflow: hidden;
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,149 @@
+@use '../utils/' as u;
+@use './colors' as c;
+@use './fonts' as f;
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: f.$primaryFont;
+    font-size: u.rem(14);
+    text-align: center;
+    color: c.$darkBlue;
+    max-width: u.rem(1440);
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    @include u.breakpoint-up(large) {
+        text-align: left;
+        font-size: u.rem(16);
+
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    line-height: u.rem(25);
+    color: c.$grayishBlue;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: u.rem(38);
+
+    @include u.breakpoint-up(large) {
+        font-size: u.rem(44);
+        font-weight: 300;
+    }
+}
+
+h2 {
+    font-size: u.rem(32);
+
+    @include u.breakpoint-up(large) {
+        font-size: u.rem(36);
+    }
+}
+
+h3 {
+    font-size: u.rem(20);
+
+    @include u.breakpoint-up(large) {
+        font-size: u.rem(22);
+    }
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    width: u.rem(162);
+    height: u.rem(45);
+    border: none;
+    outline: none;
+    color: c.$white;
+    font-family: f.$primaryFont;
+    font-weight: 400;
+    font-size: u.rem(14);
+    background: linear-gradient(to left, c.$brightCyan, c.$limeGreen);
+    border-radius: u.rem(25);
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        border-radius: u.rem(25);
+        background: rgba(255, 255, 255, 0.25);
+        transition: background 0.8s, opacity 0.5s;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+}
+
+// only for devices with touch pads
+@media (hover: none) {
+
+    // ripple effect
+    .ripple {
+        $focusColor: rgba(255, 255, 255, 0.25);
+        $activeColor: rgba(255, 255, 255, 0.1);
+
+        &::before {
+            background-position: center;
+        }
+
+        &:hover::before {
+            background: $focusColor radial-gradient(circle, transparent 1%, $focusColor 1%) center/15000%;
+        }
+
+        &:active::before {
+            background-color: $activeColor;
+            background-size: 100%;
+            transition: background 0s;
+        }
+    }
+}
+
+// Visibility
+.hide-for-mobile {
+    @include u.breakpoint-down(medium) {
+        display: none;
+    }
+}
+
+.hide-for-desktop {
+    @include u.breakpoint-up(large) {
+        display: none;
+    }
+}
+
+.noScrollY {
+    overflow-y: hidden;
+}
