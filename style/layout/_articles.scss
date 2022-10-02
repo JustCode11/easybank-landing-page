@@ -38,11 +38,11 @@
             }
 
             &:hover {
-                #cardImg {
+                .cardImg {
                     transform: scale(1.4) rotate(15deg);
                 }
 
-                #cardHeadline {
+                .cardHeadline {
                     color: v.$limeGreen;
                 }
             }

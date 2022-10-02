@@ -34,8 +34,8 @@ Mobile Preview
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/easybank-landing-page-with-sass-nwRKwHXqIY](https://www.frontendmentor.io/solutions/easybank-landing-page-with-sass-nwRKwHXqIY)
+- Live Site URL: [https://justcode11.github.io/easybank-landing-page/](https://justcode11.github.io/easybank-landing-page/)
 
 ## My process
 
